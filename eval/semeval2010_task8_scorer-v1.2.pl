@@ -172,15 +172,17 @@ sub getIDandLabel() {
     return ($id, '_Other') if ($label eq 'Other');
 
 	return ($id, $label)
-    if (($label eq 'Cause-Effect(e1,e2)')       || ($label eq 'Cause-Effect(e2,e1)')       ||
-		($label eq 'Component-Whole(e1,e2)')    || ($label eq 'Component-Whole(e2,e1)')    ||
-		($label eq 'Content-Container(e1,e2)')  || ($label eq 'Content-Container(e2,e1)')  ||
-		($label eq 'Entity-Destination(e1,e2)') || ($label eq 'Entity-Destination(e2,e1)') ||
-		($label eq 'Entity-Origin(e1,e2)')      || ($label eq 'Entity-Origin(e2,e1)')      ||
-		($label eq 'Instrument-Agency(e1,e2)')  || ($label eq 'Instrument-Agency(e2,e1)')  ||
-		($label eq 'Member-Collection(e1,e2)')  || ($label eq 'Member-Collection(e2,e1)')  ||
-		($label eq 'Message-Topic(e1,e2)')      || ($label eq 'Message-Topic(e2,e1)')      ||
-		($label eq 'Product-Producer(e1,e2)')   || ($label eq 'Product-Producer(e2,e1)'));
+	if (($label eq 'neu(e1, e2)')       || ($label eq 'pro(e1, e2)')       ||
+		($label eq 'con(e1, e2)'));
+    # if (($label eq 'Cause-Effect(e1,e2)')       || ($label eq 'Cause-Effect(e2,e1)')       ||
+	# 	($label eq 'Component-Whole(e1,e2)')    || ($label eq 'Component-Whole(e2,e1)')    ||
+	# 	($label eq 'Content-Container(e1,e2)')  || ($label eq 'Content-Container(e2,e1)')  ||
+	# 	($label eq 'Entity-Destination(e1,e2)') || ($label eq 'Entity-Destination(e2,e1)') ||
+	# 	($label eq 'Entity-Origin(e1,e2)')      || ($label eq 'Entity-Origin(e2,e1)')      ||
+	# 	($label eq 'Instrument-Agency(e1,e2)')  || ($label eq 'Instrument-Agency(e2,e1)')  ||
+	# 	($label eq 'Member-Collection(e1,e2)')  || ($label eq 'Member-Collection(e2,e1)')  ||
+	# 	($label eq 'Message-Topic(e1,e2)')      || ($label eq 'Message-Topic(e2,e1)')      ||
+	# 	($label eq 'Product-Producer(e1,e2)')   || ($label eq 'Product-Producer(e2,e1)'));
 	
 	return (-1, ());
 }
@@ -212,7 +214,7 @@ sub evaluate() {
 	my @allLabels = ();
 	&mergeLabelLists($allLabelsAnswer, $allLabelsProposed, \@allLabels);
 
-	### 1. Print the confusion matrix heading
+	# ### 1. Print the confusion matrix heading
 	print "Confusion matrix:\n";
 	print "       ";
 	foreach my $label (@allLabels) {
