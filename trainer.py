@@ -46,6 +46,7 @@ class Trainer(object):
                     print("MPS not available because the current MacOS version is not 12.3+ "
                         "and/or you do not have an MPS-enabled device on this machine.")
             else:
+                logger.info("MPS is available! Using MPS...")
                 self.device = "mps"
 
         self.model.to(self.device)
