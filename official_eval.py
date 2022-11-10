@@ -6,7 +6,10 @@ EVAL_DIR = "eval"
 def official_f1():
     # Run the perl script
     try:
-        cmd = "perl {0}/semeval2010_task8_scorer-v1.2.pl {0}/proposed_answers.txt {0}/answer_keys.txt > {0}/result.txt".format(
+        # cmd = "perl {0}/semeval2010_task8_scorer-v1.2.pl {0}/proposed_answers.txt {0}/answer_keys.txt > {0}/result.txt".format(
+        #     EVAL_DIR
+        # )
+        cmd = "python {0}/sentiment_inference_scorer.py {0}/proposed_answers.txt {0}/answer_keys.txt > {0}/result.txt".format(
             EVAL_DIR
         )
         os.system(cmd)
@@ -15,6 +18,7 @@ def official_f1():
 
     with open(os.path.join(EVAL_DIR, "result.txt"), "r", encoding="utf-8") as f:
         macro_result = list(f)[-1]
+        # breakpoint()
         macro_result = macro_result.split(":")[1].replace(">>>", "").strip()
         macro_result = macro_result.split("=")[1].strip().replace("%", "")
         macro_result = float(macro_result) / 100
