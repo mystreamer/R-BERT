@@ -66,3 +66,11 @@ $ python3 predict.py --input_file {INPUT_FILE_PATH} --output_file {OUTPUT_FILE_P
 - [NLP-progress Relation Extraction](http://nlpprogress.com/english/relationship_extraction.html)
 - [Huggingface Transformers](https://github.com/huggingface/transformers)
 - [https://github.com/wang-h/bert-relation-classification](https://github.com/wang-h/bert-relation-classification)
+
+## Run for Sentiment Inference Task
+----
+
+```
+mkdir ./models
+python3 main.py --do_train --do_eval --train_batch_size=8 --eval_batch_size=16 --model_name_or_path=distilbert-base-german-cased --num_train_epochs=1 --save_steps=12
+```
