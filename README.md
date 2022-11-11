@@ -70,6 +70,8 @@ $ python3 predict.py --input_file {INPUT_FILE_PATH} --output_file {OUTPUT_FILE_P
 ## Run for Sentiment Inference Task
 ----
 
+Dont forget to `chmod` the files `a+x`.
+
 ```
 mkdir ./models
 python3 main.py --do_train --do_eval --train_batch_size=8 --eval_batch_size=16 --model_name_or_path=distilbert-base-german-cased --num_train_epochs=1 --save_steps=12
